@@ -10,7 +10,7 @@ import model.Person;
 import service.PersonService;
 
 //used to define endpoint
-@RequestMapping("person")
+@RequestMapping("/")
 //to expose endpoints and use http methods
 @RestController
 public class PersonController {
