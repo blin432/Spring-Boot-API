@@ -6,6 +6,7 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,12 @@ import model.Person;
 import service.PersonService;
 
 //to expose endpoints and use http methods
-@RestController
+
 //used to define endpoint
 
-@RequestMapping("/api/v1/person")
-
+@ComponentScan(basePackageClasses = PersonService.class)
+@RequestMapping("api/v1/person")
+@RestController
 public class PersonController {
 
 	// reference to the service

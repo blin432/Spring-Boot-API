@@ -6,11 +6,14 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+import api.PersonController;
 import dao.PersonDao;
 import model.Person;
 
+@ComponentScan(basePackageClasses = PersonDao.class)
 @Service
 public class PersonService {
 	//getting a reference of person DAO
@@ -19,9 +22,9 @@ public class PersonService {
 	//injecting into the actual constructor
 	//autowiring into the interface
 	//qualifier makes it able to be distinguished
+	//to use postgres change "fakeDao" to "postgres"
 	@Autowired
 	public PersonService(@Qualifier("fakeDao") PersonDao personDao) {
-		super();
 		this.personDao = personDao;
 	}
 	//to insert a new person
